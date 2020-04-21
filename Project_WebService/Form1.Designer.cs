@@ -145,6 +145,7 @@
             this.btnAddViaUsername.TabIndex = 13;
             this.btnAddViaUsername.Text = "Add via Username";
             this.btnAddViaUsername.UseVisualStyleBackColor = true;
+            this.btnAddViaUsername.Click += new System.EventHandler(this.btnAddViaUsername_Click);
             // 
             // btnNbreCopy
             // 

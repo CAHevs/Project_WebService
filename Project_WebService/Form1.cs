@@ -16,20 +16,16 @@ namespace Project_WebService
 {
     public partial class Form1 : Form
     {
-        /*public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .Build();*/
-
-        public ServiceReferenceUpdateAmount.UpdateAmountServiceClient service = new ServiceReferenceUpdateAmount.UpdateAmountServiceClient();
-
-        public List<User> users;
+        public User[] users;
         public User selectedUser;
+        public ServiceReferenceUserAccount.UpdateAmountServiceClient service = new ServiceReferenceUserAccount.UpdateAmountServiceClient();
 
         public double priceCopy = 0.08;
         public Form1()
         {
             InitializeComponent();
+
+            users = service.GetAllUsers();
 
             foreach(var user in users)
             {
@@ -62,7 +58,18 @@ namespace Project_WebService
 
         private void btnAddViaId_Click(object sender, EventArgs e)
         {
+            double newAmount = double.Parse(txtAmount.Text) + selectedUser.Amount;
+            service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
+            lblAmount.Text = newAmount.ToString();
             CalculateNbreCopy();     
+        }
+
+        private void btnAddViaUsername_Click(object sender, EventArgs e)
+        {
+            double newAmount = double.Parse(txtAmount.Text) + selectedUser.Amount;
+            service.UpdateAmountViaUsername(selectedUser.Username, newAmount);
+            lblAmount.Text = newAmount.ToString();
+            CalculateNbreCopy();
         }
 
         private void CalculateNbreCopy()
@@ -71,5 +78,7 @@ namespace Project_WebService
             int nbreCopy = (int)(amount_available / priceCopy);
             lblNbreCopy.Text = nbreCopy.ToString();
         }
+
+
     }
 }

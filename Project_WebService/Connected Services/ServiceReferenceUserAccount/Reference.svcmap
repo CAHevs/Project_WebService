@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4800dbf3-959e-4946-b663-1881a37f7f0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49851/UpdateAmountService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UpdateAmountService.xsd" MetadataType="Schema" ID="5463baed-d3c2-4364-8383-b41715ec6b3f" SourceId="1" SourceUrl="http://localhost:49851/UpdateAmountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UpdateAmountService.wsdl" MetadataType="Wsdl" ID="e94b3700-b9ed-4601-860f-c9f4bd01cef9" SourceId="1" SourceUrl="http://localhost:49851/UpdateAmountService.svc?wsdl" />
+    <MetadataFile FileName="UpdateAmountService.disco" MetadataType="Disco" ID="68f59cdb-5553-452d-bdc5-da716427506e" SourceId="1" SourceUrl="http://localhost:49851/UpdateAmountService.svc?disco" />
+    <MetadataFile FileName="UpdateAmountService1.xsd" MetadataType="Schema" ID="fdd258a6-adbf-4860-afbb-4deee652a238" SourceId="1" SourceUrl="http://localhost:49851/UpdateAmountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UpdateAmountService2.xsd" MetadataType="Schema" ID="bed4ffca-2f2c-4575-a7b5-d2b40d622064" SourceId="1" SourceUrl="http://localhost:49851/UpdateAmountService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

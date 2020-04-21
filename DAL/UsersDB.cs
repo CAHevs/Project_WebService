@@ -19,7 +19,12 @@ namespace DAL
             Configuration = configuration;
         }
         */
-        public string connectionString = ConfigurationManager.ConnectionStrings["Project_WebServiceDB"].ConnectionString;
+        public string connectionString = null;
+
+        public UsersDB()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["WebServiceDB"].ConnectionString;
+        }
 
         public List<User> GetUsers()
         {
