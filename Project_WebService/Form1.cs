@@ -51,9 +51,12 @@ namespace Project_WebService
             btnAddViaId.Enabled = true;
             btnAddViaUsername.Enabled = true;
             txtAmount.Enabled = true;
-            btnNbreCopy.Enabled = true;
+            btnPrint.Enabled = true;
+            txtNbreCopyToPrint.Enabled = true;
 
             CalculateNbreCopy();
+
+            lblInfo.Text = "You're connected as : " + selectedUser.Username;
         }
 
         private void btnAddViaId_Click(object sender, EventArgs e)
@@ -61,7 +64,8 @@ namespace Project_WebService
             double newAmount = double.Parse(txtAmount.Text) + selectedUser.Amount;
             service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
             lblAmount.Text = newAmount.ToString();
-            CalculateNbreCopy();     
+            CalculateNbreCopy();
+            lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
         }
 
         private void btnAddViaUsername_Click(object sender, EventArgs e)
@@ -70,6 +74,7 @@ namespace Project_WebService
             service.UpdateAmountViaUsername(selectedUser.Username, newAmount);
             lblAmount.Text = newAmount.ToString();
             CalculateNbreCopy();
+            lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
         }
 
         private void CalculateNbreCopy()
@@ -79,6 +84,16 @@ namespace Project_WebService
             lblNbreCopy.Text = nbreCopy.ToString();
         }
 
-
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            double nbreCopies = double.Parse(txtNbreCopyToPrint.Text);
+            double priceCopies = nbreCopies * priceCopy;
+            double currentAmount = double.Parse(lblAmount.Text);
+            double newAmount = currentAmount - priceCopies;
+            service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
+            lblAmount.Text = newAmount.ToString();
+            CalculateNbreCopy();
+            lblInfo.Text = "You have succesfully print : " + txtNbreCopyToPrint.Text+ " for a total of " + priceCopies;
+        }
     }
 }

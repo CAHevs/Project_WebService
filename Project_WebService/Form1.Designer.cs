@@ -39,9 +39,11 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lbUsername = new System.Windows.Forms.ListBox();
             this.btnAddViaUsername = new System.Windows.Forms.Button();
-            this.btnNbreCopy = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.lblNbreCopy = new System.Windows.Forms.Label();
             this.lblPrevCopy = new System.Windows.Forms.Label();
+            this.txtNbreCopyToPrint = new System.Windows.Forms.TextBox();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -147,12 +149,15 @@
             this.btnAddViaUsername.UseVisualStyleBackColor = true;
             this.btnAddViaUsername.Click += new System.EventHandler(this.btnAddViaUsername_Click);
             // 
-            // btnNbreCopy
+            // btnPrint
             // 
-            this.btnNbreCopy.Location = new System.Drawing.Point(0, 0);
-            this.btnNbreCopy.Name = "btnNbreCopy";
-            this.btnNbreCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnNbreCopy.TabIndex = 16;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.Location = new System.Drawing.Point(12, 384);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(140, 23);
+            this.btnPrint.TabIndex = 16;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // lblNbreCopy
             // 
@@ -172,14 +177,32 @@
             this.lblPrevCopy.TabIndex = 17;
             this.lblPrevCopy.Text = "Nbre Copy";
             // 
+            // txtNbreCopyToPrint
+            // 
+            this.txtNbreCopyToPrint.Enabled = false;
+            this.txtNbreCopyToPrint.Location = new System.Drawing.Point(172, 384);
+            this.txtNbreCopyToPrint.Name = "txtNbreCopyToPrint";
+            this.txtNbreCopyToPrint.Size = new System.Drawing.Size(100, 22);
+            this.txtNbreCopyToPrint.TabIndex = 18;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(16, 424);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 17);
+            this.lblInfo.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 450);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.txtNbreCopyToPrint);
             this.Controls.Add(this.lblPrevCopy);
             this.Controls.Add(this.lblNbreCopy);
-            this.Controls.Add(this.btnNbreCopy);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnAddViaUsername);
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.txtAmount);
@@ -210,9 +233,11 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.ListBox lbUsername;
         private System.Windows.Forms.Button btnAddViaUsername;
-        private System.Windows.Forms.Button btnNbreCopy;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label lblNbreCopy;
         private System.Windows.Forms.Label lblPrevCopy;
+        private System.Windows.Forms.TextBox txtNbreCopyToPrint;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
 
