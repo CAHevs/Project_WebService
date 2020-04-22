@@ -23,6 +23,16 @@ namespace BLL
             return UsersDB.GetUsers();
         }
 
+        public User GetUserByUsername(string username)
+        {
+            return UsersDB.GetUserByUsername(username);
+        }
+
+        public User GetUserById(int id)
+        {
+            return UsersDB.GetUserById(id);
+        }
+
         public float GetAmountForAStudent(int id)
         {
             return UsersDB.GetAmountForAStudent(id);

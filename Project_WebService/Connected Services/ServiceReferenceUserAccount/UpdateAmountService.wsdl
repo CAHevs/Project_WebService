@@ -25,6 +25,18 @@
   <wsdl:message name="IUpdateAmountService_GetAllUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IUpdateAmountService_ConnectWithUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectWithUsername" />
+  </wsdl:message>
+  <wsdl:message name="IUpdateAmountService_ConnectWithUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectWithUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdateAmountService_ConnectWithId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectWithId" />
+  </wsdl:message>
+  <wsdl:message name="IUpdateAmountService_ConnectWithId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectWithIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUpdateAmountService">
     <wsdl:operation name="UpdateAmountViaUsername">
       <wsdl:input wsaw:Action="http://tempuri.org/IUpdateAmountService/UpdateAmountViaUsername" message="tns:IUpdateAmountService_UpdateAmountViaUsername_InputMessage" />
@@ -37,6 +49,14 @@
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IUpdateAmountService/GetAllUsers" message="tns:IUpdateAmountService_GetAllUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUpdateAmountService/GetAllUsersResponse" message="tns:IUpdateAmountService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdateAmountService/ConnectWithUsername" message="tns:IUpdateAmountService_ConnectWithUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdateAmountService/ConnectWithUsernameResponse" message="tns:IUpdateAmountService_ConnectWithUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdateAmountService/ConnectWithId" message="tns:IUpdateAmountService_ConnectWithId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdateAmountService/ConnectWithIdResponse" message="tns:IUpdateAmountService_ConnectWithId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUpdateAmountService" type="tns:IUpdateAmountService">
@@ -61,6 +81,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <soap:operation soapAction="http://tempuri.org/IUpdateAmountService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithUsername">
+      <soap:operation soapAction="http://tempuri.org/IUpdateAmountService/ConnectWithUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithId">
+      <soap:operation soapAction="http://tempuri.org/IUpdateAmountService/ConnectWithId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

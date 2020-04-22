@@ -21,5 +21,11 @@ namespace WcfServiceAddAmountViaId
 
         [OperationContract]
         List<User> GetAllUsers();
+
+        [OperationContract]
+        User ConnectWithUsername(string username);
+
+        [OperationContract]
+        User ConnectWithId(int id);
     }
 }

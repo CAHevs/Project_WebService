@@ -40,5 +40,21 @@ namespace WcfServiceAddAmountViaId
             List<User> listUsers = usersManager.GetUsers();
             return listUsers;
         }
+
+        public User ConnectWithUsername(string username)
+        {
+            IUsersDB usersDB = new UsersDB();
+            IUsersManager usersManager = new UsersManager(usersDB);
+            User selectedUser = usersManager.GetUserByUsername(username);
+            return selectedUser;
+        }
+
+        public User ConnectWithId(int id)
+        {
+            IUsersDB usersDB = new UsersDB();
+            IUsersManager usersManager = new UsersManager(usersDB);
+            User selectedUser = usersManager.GetUserById(id);
+            return selectedUser;
+        }
     }
 }

@@ -66,6 +66,82 @@ namespace DAL
             return results;
         }
 
+        public User GetUserByUsername(string username)
+        {
+            User result = null;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM [User]  WHERE Username=@username";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 50).Value = username;
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            result = new User();
+
+                            result.IdUser = (int)dr["IdUser"];
+                            result.Firstname = (string)dr["Firstname"];
+                            result.Lastname = (string)dr["Lastname"];
+                            result.Username = (string)dr["Username"];
+                            result.Amount = (double)dr["Amount"];
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return result;
+        }
+
+        public User GetUserById(int id)
+        {
+            User result = null;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM [User]  WHERE IdUser=@id";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            result = new User();
+
+                            result.IdUser = (int)dr["IdUser"];
+                            result.Firstname = (string)dr["Firstname"];
+                            result.Lastname = (string)dr["Lastname"];
+                            result.Username = (string)dr["Username"];
+                            result.Amount = (double)dr["Amount"];
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return result;
+        }
+
         public float GetAmountForAStudent(int id)
         {
             float amount = 0;

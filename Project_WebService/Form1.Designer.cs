@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPrevUsername = new System.Windows.Forms.Label();
             this.lblPrevFirstname = new System.Windows.Forms.Label();
             this.lblPrevLastname = new System.Windows.Forms.Label();
             this.lblPrevAmount = new System.Windows.Forms.Label();
@@ -44,21 +44,26 @@
             this.lblPrevCopy = new System.Windows.Forms.Label();
             this.txtNbreCopyToPrint = new System.Windows.Forms.TextBox();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.btnConnectUsername = new System.Windows.Forms.Button();
+            this.btnConnectWithId = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblUsername
+            // lblPrevUsername
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(32, 34);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 17);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
+            this.lblPrevUsername.AutoSize = true;
+            this.lblPrevUsername.Location = new System.Drawing.Point(32, 102);
+            this.lblPrevUsername.Name = "lblPrevUsername";
+            this.lblPrevUsername.Size = new System.Drawing.Size(73, 17);
+            this.lblPrevUsername.TabIndex = 1;
+            this.lblPrevUsername.Text = "Username";
             // 
             // lblPrevFirstname
             // 
             this.lblPrevFirstname.AutoSize = true;
-            this.lblPrevFirstname.Location = new System.Drawing.Point(32, 82);
+            this.lblPrevFirstname.Location = new System.Drawing.Point(32, 150);
             this.lblPrevFirstname.Name = "lblPrevFirstname";
             this.lblPrevFirstname.Size = new System.Drawing.Size(70, 17);
             this.lblPrevFirstname.TabIndex = 2;
@@ -67,7 +72,7 @@
             // lblPrevLastname
             // 
             this.lblPrevLastname.AutoSize = true;
-            this.lblPrevLastname.Location = new System.Drawing.Point(32, 132);
+            this.lblPrevLastname.Location = new System.Drawing.Point(32, 200);
             this.lblPrevLastname.Name = "lblPrevLastname";
             this.lblPrevLastname.Size = new System.Drawing.Size(70, 17);
             this.lblPrevLastname.TabIndex = 3;
@@ -76,7 +81,7 @@
             // lblPrevAmount
             // 
             this.lblPrevAmount.AutoSize = true;
-            this.lblPrevAmount.Location = new System.Drawing.Point(32, 186);
+            this.lblPrevAmount.Location = new System.Drawing.Point(32, 254);
             this.lblPrevAmount.Name = "lblPrevAmount";
             this.lblPrevAmount.Size = new System.Drawing.Size(56, 17);
             this.lblPrevAmount.TabIndex = 4;
@@ -85,7 +90,7 @@
             // lblFirstname
             // 
             this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(120, 82);
+            this.lblFirstname.Location = new System.Drawing.Point(120, 150);
             this.lblFirstname.Name = "lblFirstname";
             this.lblFirstname.Size = new System.Drawing.Size(13, 17);
             this.lblFirstname.TabIndex = 5;
@@ -94,7 +99,7 @@
             // lblLastname
             // 
             this.lblLastname.AutoSize = true;
-            this.lblLastname.Location = new System.Drawing.Point(120, 132);
+            this.lblLastname.Location = new System.Drawing.Point(120, 200);
             this.lblLastname.Name = "lblLastname";
             this.lblLastname.Size = new System.Drawing.Size(13, 17);
             this.lblLastname.TabIndex = 6;
@@ -103,7 +108,7 @@
             // lblAmount
             // 
             this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(120, 186);
+            this.lblAmount.Location = new System.Drawing.Point(120, 254);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(13, 17);
             this.lblAmount.TabIndex = 7;
@@ -112,7 +117,7 @@
             // btnAddViaId
             // 
             this.btnAddViaId.Enabled = false;
-            this.btnAddViaId.Location = new System.Drawing.Point(12, 331);
+            this.btnAddViaId.Location = new System.Drawing.Point(12, 399);
             this.btnAddViaId.Name = "btnAddViaId";
             this.btnAddViaId.Size = new System.Drawing.Size(140, 23);
             this.btnAddViaId.TabIndex = 8;
@@ -123,7 +128,7 @@
             // txtAmount
             // 
             this.txtAmount.Enabled = false;
-            this.txtAmount.Location = new System.Drawing.Point(72, 293);
+            this.txtAmount.Location = new System.Drawing.Point(72, 361);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(172, 22);
             this.txtAmount.TabIndex = 11;
@@ -132,16 +137,16 @@
             // 
             this.lbUsername.FormattingEnabled = true;
             this.lbUsername.ItemHeight = 16;
-            this.lbUsername.Location = new System.Drawing.Point(123, 24);
+            this.lbUsername.Location = new System.Drawing.Point(396, 22);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(159, 36);
+            this.lbUsername.Size = new System.Drawing.Size(159, 52);
             this.lbUsername.TabIndex = 12;
             this.lbUsername.SelectedIndexChanged += new System.EventHandler(this.lbUsername_SelectedIndexChanged);
             // 
             // btnAddViaUsername
             // 
             this.btnAddViaUsername.Enabled = false;
-            this.btnAddViaUsername.Location = new System.Drawing.Point(158, 331);
+            this.btnAddViaUsername.Location = new System.Drawing.Point(158, 399);
             this.btnAddViaUsername.Name = "btnAddViaUsername";
             this.btnAddViaUsername.Size = new System.Drawing.Size(140, 23);
             this.btnAddViaUsername.TabIndex = 13;
@@ -152,7 +157,7 @@
             // btnPrint
             // 
             this.btnPrint.Enabled = false;
-            this.btnPrint.Location = new System.Drawing.Point(12, 384);
+            this.btnPrint.Location = new System.Drawing.Point(12, 452);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(140, 23);
             this.btnPrint.TabIndex = 16;
@@ -162,7 +167,7 @@
             // lblNbreCopy
             // 
             this.lblNbreCopy.AutoSize = true;
-            this.lblNbreCopy.Location = new System.Drawing.Point(120, 233);
+            this.lblNbreCopy.Location = new System.Drawing.Point(120, 301);
             this.lblNbreCopy.Name = "lblNbreCopy";
             this.lblNbreCopy.Size = new System.Drawing.Size(13, 17);
             this.lblNbreCopy.TabIndex = 15;
@@ -171,7 +176,7 @@
             // lblPrevCopy
             // 
             this.lblPrevCopy.AutoSize = true;
-            this.lblPrevCopy.Location = new System.Drawing.Point(32, 233);
+            this.lblPrevCopy.Location = new System.Drawing.Point(32, 301);
             this.lblPrevCopy.Name = "lblPrevCopy";
             this.lblPrevCopy.Size = new System.Drawing.Size(75, 17);
             this.lblPrevCopy.TabIndex = 17;
@@ -180,7 +185,7 @@
             // txtNbreCopyToPrint
             // 
             this.txtNbreCopyToPrint.Enabled = false;
-            this.txtNbreCopyToPrint.Location = new System.Drawing.Point(172, 384);
+            this.txtNbreCopyToPrint.Location = new System.Drawing.Point(172, 452);
             this.txtNbreCopyToPrint.Name = "txtNbreCopyToPrint";
             this.txtNbreCopyToPrint.Size = new System.Drawing.Size(100, 22);
             this.txtNbreCopyToPrint.TabIndex = 18;
@@ -188,16 +193,64 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(16, 424);
+            this.lblInfo.Location = new System.Drawing.Point(16, 492);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(0, 17);
             this.lblInfo.TabIndex = 19;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(251, 22);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(100, 22);
+            this.txtUsername.TabIndex = 20;
+            // 
+            // btnConnectUsername
+            // 
+            this.btnConnectUsername.Location = new System.Drawing.Point(35, 22);
+            this.btnConnectUsername.Name = "btnConnectUsername";
+            this.btnConnectUsername.Size = new System.Drawing.Size(209, 23);
+            this.btnConnectUsername.TabIndex = 21;
+            this.btnConnectUsername.Text = "Connect with Username";
+            this.btnConnectUsername.UseVisualStyleBackColor = true;
+            this.btnConnectUsername.Click += new System.EventHandler(this.btnConnectUsername_Click);
+            // 
+            // btnConnectWithId
+            // 
+            this.btnConnectWithId.Location = new System.Drawing.Point(35, 51);
+            this.btnConnectWithId.Name = "btnConnectWithId";
+            this.btnConnectWithId.Size = new System.Drawing.Size(209, 23);
+            this.btnConnectWithId.TabIndex = 22;
+            this.btnConnectWithId.Text = "Connect with Id";
+            this.btnConnectWithId.UseVisualStyleBackColor = true;
+            this.btnConnectWithId.Click += new System.EventHandler(this.btnConnectWithId_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(251, 52);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 22);
+            this.txtId.TabIndex = 23;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(120, 102);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(13, 17);
+            this.lblUsername.TabIndex = 24;
+            this.lblUsername.Text = "-";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 450);
+            this.ClientSize = new System.Drawing.Size(623, 569);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.btnConnectWithId);
+            this.Controls.Add(this.btnConnectUsername);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.txtNbreCopyToPrint);
             this.Controls.Add(this.lblPrevCopy);
@@ -213,7 +266,7 @@
             this.Controls.Add(this.lblPrevAmount);
             this.Controls.Add(this.lblPrevLastname);
             this.Controls.Add(this.lblPrevFirstname);
-            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblPrevUsername);
             this.Name = "Form1";
             this.Text = "Project WebService";
             this.ResumeLayout(false);
@@ -222,7 +275,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPrevUsername;
         private System.Windows.Forms.Label lblPrevFirstname;
         private System.Windows.Forms.Label lblPrevLastname;
         private System.Windows.Forms.Label lblPrevAmount;
@@ -238,6 +291,11 @@
         private System.Windows.Forms.Label lblPrevCopy;
         private System.Windows.Forms.TextBox txtNbreCopyToPrint;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button btnConnectUsername;
+        private System.Windows.Forms.Button btnConnectWithId;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
 

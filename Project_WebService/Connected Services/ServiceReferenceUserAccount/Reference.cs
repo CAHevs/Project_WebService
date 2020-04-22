@@ -32,6 +32,18 @@ namespace Project_WebService.ServiceReferenceUserAccount {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUpdateAmountService/GetAllUsers", ReplyAction="http://tempuri.org/IUpdateAmountService/GetAllUsersResponse")]
         System.Threading.Tasks.Task<DTO.User[]> GetAllUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUpdateAmountService/ConnectWithUsername", ReplyAction="http://tempuri.org/IUpdateAmountService/ConnectWithUsernameResponse")]
+        DTO.User ConnectWithUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUpdateAmountService/ConnectWithUsername", ReplyAction="http://tempuri.org/IUpdateAmountService/ConnectWithUsernameResponse")]
+        System.Threading.Tasks.Task<DTO.User> ConnectWithUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUpdateAmountService/ConnectWithId", ReplyAction="http://tempuri.org/IUpdateAmountService/ConnectWithIdResponse")]
+        DTO.User ConnectWithId(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUpdateAmountService/ConnectWithId", ReplyAction="http://tempuri.org/IUpdateAmountService/ConnectWithIdResponse")]
+        System.Threading.Tasks.Task<DTO.User> ConnectWithIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +95,22 @@ namespace Project_WebService.ServiceReferenceUserAccount {
         
         public System.Threading.Tasks.Task<DTO.User[]> GetAllUsersAsync() {
             return base.Channel.GetAllUsersAsync();
+        }
+        
+        public DTO.User ConnectWithUsername(string username) {
+            return base.Channel.ConnectWithUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<DTO.User> ConnectWithUsernameAsync(string username) {
+            return base.Channel.ConnectWithUsernameAsync(username);
+        }
+        
+        public DTO.User ConnectWithId(int id) {
+            return base.Channel.ConnectWithId(id);
+        }
+        
+        public System.Threading.Tasks.Task<DTO.User> ConnectWithIdAsync(int id) {
+            return base.Channel.ConnectWithIdAsync(id);
         }
     }
 }

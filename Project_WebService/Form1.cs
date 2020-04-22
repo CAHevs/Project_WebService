@@ -61,20 +61,38 @@ namespace Project_WebService
 
         private void btnAddViaId_Click(object sender, EventArgs e)
         {
-            double newAmount = double.Parse(txtAmount.Text) + selectedUser.Amount;
-            service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
-            lblAmount.Text = newAmount.ToString();
-            CalculateNbreCopy();
-            lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
+            double newAmount;
+            if(!double.TryParse(txtAmount.Text, out newAmount))
+            {
+                lblInfo.Text = "This is a number only field";
+            }
+            else
+            {
+                newAmount += selectedUser.Amount;
+                service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
+                lblAmount.Text = newAmount.ToString();
+                CalculateNbreCopy();
+                lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
+            }
+           
         }
 
         private void btnAddViaUsername_Click(object sender, EventArgs e)
-        {
-            double newAmount = double.Parse(txtAmount.Text) + selectedUser.Amount;
-            service.UpdateAmountViaUsername(selectedUser.Username, newAmount);
-            lblAmount.Text = newAmount.ToString();
-            CalculateNbreCopy();
-            lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
+        {   
+            double newAmount;
+            if (!double.TryParse(txtAmount.Text, out newAmount))
+            {
+                lblInfo.Text = "This is a number only field";
+            }
+            else
+            {
+                newAmount += selectedUser.Amount;
+                service.UpdateAmountViaUsername(selectedUser.Username, newAmount);
+                lblAmount.Text = newAmount.ToString();
+                CalculateNbreCopy();
+                lblInfo.Text = "You have succesfully added : " + txtAmount.Text + " to your balance";
+            }
+
         }
 
         private void CalculateNbreCopy()
@@ -86,14 +104,97 @@ namespace Project_WebService
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            double nbreCopies = double.Parse(txtNbreCopyToPrint.Text);
-            double priceCopies = nbreCopies * priceCopy;
-            double currentAmount = double.Parse(lblAmount.Text);
-            double newAmount = currentAmount - priceCopies;
-            service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
-            lblAmount.Text = newAmount.ToString();
-            CalculateNbreCopy();
-            lblInfo.Text = "You have succesfully print : " + txtNbreCopyToPrint.Text+ " for a total of " + priceCopies;
+            double nbreCopies;
+            if(!double.TryParse(txtNbreCopyToPrint.Text, out nbreCopies))
+            {
+                lblInfo.Text = "This is a number only field";
+            }
+            else
+            {
+                double priceCopies = nbreCopies * priceCopy;
+                double currentAmount = double.Parse(lblAmount.Text);
+                double newAmount = currentAmount - priceCopies;
+                service.UpdateAmountViaId(selectedUser.IdUser, newAmount);
+                lblAmount.Text = newAmount.ToString();
+                CalculateNbreCopy();
+                lblInfo.Text = "You have succesfully print : " + txtNbreCopyToPrint.Text + " for a total of " + priceCopies;
+            }
+            
+        }
+
+        private void btnConnectUsername_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            selectedUser = service.ConnectWithUsername(username);
+            if (selectedUser != null)
+            {
+                changeDisplay(true, selectedUser);
+            }
+            else
+            {
+                changeDisplay(false, null);
+            }
+
+
+        }
+
+        private void btnConnectWithId_Click(object sender, EventArgs e)
+        {
+            int id;
+            if(!int.TryParse(txtId.Text, out id))
+            {
+                lblInfo.Text = "This is a number only field";
+            }
+            else
+            {
+                selectedUser = service.ConnectWithId(id);
+                if (selectedUser != null)
+                {
+                    changeDisplay(true, selectedUser);
+                }
+                else
+                {
+                    changeDisplay(false, null);
+                }
+            } 
+        }
+
+        private void changeDisplay(bool connected, User user)
+        {
+            if (connected)
+            {
+                lblFirstname.Text = user.Firstname;
+                lblLastname.Text = user.Lastname;
+                lblAmount.Text = user.Amount.ToString();
+
+                btnAddViaId.Enabled = true;
+                btnAddViaUsername.Enabled = true;
+                txtAmount.Enabled = true;
+                btnPrint.Enabled = true;
+                txtNbreCopyToPrint.Enabled = true;
+
+                CalculateNbreCopy();
+
+                lblInfo.Text = "You're connected as : " + user.Username;
+                connected = true;
+            }
+            else
+            {
+                lblFirstname.Text = "-";
+                lblLastname.Text = "-";
+                lblAmount.Text = "-";
+
+                btnAddViaId.Enabled = false;
+                btnAddViaUsername.Enabled = false;
+                txtAmount.Enabled = false;
+                btnPrint.Enabled = false;
+                txtNbreCopyToPrint.Enabled = false;
+
+                lblNbreCopy.Text = "-";
+
+                lblInfo.Text = "Error during the connection. The username or the id does not exists";
+                connected = false;
+            }
         }
     }
 }
